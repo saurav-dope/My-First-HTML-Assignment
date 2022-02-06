@@ -4,6 +4,7 @@
 #container, .content {
 width: 100%;
 height: 100%;
+font-family: cursive;
 }
 
 header{
@@ -67,7 +68,6 @@ header{
     background-color: chocolate;
     width: 200px;
     height: 50%;
-    font-family: cursive;
 }
 
 .aside-left>ul{
@@ -90,7 +90,6 @@ header{
     background-color: chocolate;
     width: 200px;
     height: 50%;
-    font-family: cursive;
     left: 84%;
 }
 
@@ -115,5 +114,11 @@ header{
 .footer-paragraph{
     margin: 5px;
     padding: 2px;
-    font-family: cursive;
+}
+
+.post-img{
+    height: 140px;
+    width: 140px;
+    margin: 5px;
+    padding: 0 70px;
 }
