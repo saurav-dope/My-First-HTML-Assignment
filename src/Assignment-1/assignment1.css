@@ -1,7 +1,82 @@
 /* Our CSS file. */
+@font-face {
+    font-family: spooky;
+    src: url(fonts/spooky.ttf);
+}
 
+body{
+    margin: 0;
+    padding: 0;
+}
 
-.container, .content {
-width: 100%;
-height: 100%;
+#container, .content{
+    height: 100%;
+    width: 100%;
+}
+
+.row{
+    width: 100%;
+    height: 300px;
+    display: block;
+    border: 1px solid red;
+    margin: 2px;
+}
+
+.col{
+    border: 1px solid blue;
+    width: 49.8%;
+    height: 100%;
+}
+
+.col1{
+    float: left;
+    margin: 0 auto;
+}
+
+.col2{
+    float: right;
+    margin: 0 auto;
+}
+
+img{
+    width: 350px;
+    height: 280px;
+    margin-top: 10px;
+    margin-left: 25%;
+}
+
+.list1{
+    position: absolute;
+    font-size: 32px;
+    font-family: cursive;
+    list-style: square;
+    padding: 0 0 0 14%;
+    font-style: italic;
+}
+
+.list2{
+    list-style: disc;
+}
+
+h1{
+    font-family: spooky;
+    font-size: 50px;
+    padding: 5% 0 0 10%;
+    font-style: italic;
+}
+
+.one{
+    background-color: rgb(121, 241, 8);
+}
+
+.four{
+    background-color: rgb(121, 241, 8);
+}
+
+.two{
+    background-color: rgb(233, 103, 52);
+}
+
+.three{
+    background-color: rgb(233, 103, 52);
 }
