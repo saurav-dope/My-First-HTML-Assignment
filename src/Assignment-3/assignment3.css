@@ -1,7 +1,109 @@
 /* Our CSS file. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+@font-face {
+    src: url(fonts/ghosty_1.otf);
+    font-family: ghosty;
+}
 
-.container, .content {
-width: 100%;
-height: 100%;
+@font-face {
+    src: url(fonts/ghosty.ttf);
+    font-family: ghosty_button;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+#container, .content {
+    width: 100%;
+    height: 120vh;
+    font-family: sans-serif;
+}
+
+h1{
+    font-family: ghosty;
+}
+
+.outer-bottom {
+    height: 100%;
+    background-color: #f2f2f2;
+}
+
+.inner-left {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    float: left;
+    border: 2px solid black;
+}
+
+h1 {
+    position: relative;
+    top: 15%;
+    left: calc(50% - 170px);
+}
+
+p {
+    position: relative;
+    top: 18%;
+    left: 10%;
+    text-align: justify;
+    width: 80%;
+    font-size: 22px;
+    font-family: cursive;
+}
+
+button {
+    position: relative;
+    top: 22%;
+    left: calc(50% - 88.1px);
+    font-size: 34px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 6px;
+    font-family: cursive;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #888888;
+}
+
+button:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.inner-right {
+    width: 50%;
+    float: right;
+    height: 100%;
+    border: 2px solid black;
+}
+
+.outer-top {
+    height: 50%;
+    background-color: #f2f2f2;
+}
+
+h1.second {
+    position: relative;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+}
+
+.inner-top {
+    height: 40%;
+    border: 2px solid black;
+}
+
+.inner-bottom {
+    height: 75%;
+    border: 2px solid black;
 }
