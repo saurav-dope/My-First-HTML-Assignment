@@ -1,7 +1,124 @@
 /* Our CSS file. */
 
 
-.container, .content {
+#container, .content {
 width: 100%;
 height: 100%;
+font-family: cursive;
+}
+
+header{
+    display: inline-block;
+    width: 100%;
+    margin: 5px;
+    margin-bottom: -5px;
+    background-color: #00A896;
+}
+
+.logo-wrapper {
+    display: inline-flex;
+    position: absolute;
+    width: 90px;
+    height: 80px;
+    float: left;
+    margin: 9px 10px 10px 30px;
+}
+
+/* .logo-image{
+
+} */
+
+.form-wrapper{
+    float: right;
+    margin: 35px;
+}
+
+.navigation-pane{
+    margin: 5px;
+    height: 70px;
+    width: 100%;
+    background-color:burlywood;
+    text-decoration: none;
+}
+
+.navigation-pane ul{
+    display: inline-flex;
+    position: absolute;
+    left: 25%;
+}
+
+.navigation-pane>ul>li{
+    list-style: none;
+    padding: 0 40px;
+    font-size: 24px;
+}
+
+.navigation-pane>ul>li>a{
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.navigation-pane>ul>li :hover{
+    color: red;
+}
+
+.aside-left{
+    margin: 5px;
+    position: absolute;
+    background-color: chocolate;
+    width: 200px;
+    height: 50%;
+}
+
+.aside-left>ul{
+    margin: 10px;
+    list-style: none;
+}
+
+.content-section{
+    margin: 5px 5px 5px 7px;
+    background-color: #fc3807;
+    position: absolute;
+    height: 50%;
+    width: 67.5%;
+    left: 16%;
+}
+
+.aside-right{
+    margin: 5px;
+    position: absolute;
+    background-color: chocolate;
+    width: 200px;
+    height: 50%;
+    left: 84%;
+}
+
+.aside-right>ul{
+    margin: 3px 0 0 0;
+    padding: 20px 0 0 15px;
+    list-style: none;
+    font-size: larger;
+}
+
+.aside-right>ul>li{
+    padding: 5px;
+}
+
+#page-footer{
+    position: absolute;
+    top: 82%;
+    margin: 5px;
+    background-color: rgb(135, 27, 236);
+}
+
+.footer-paragraph{
+    margin: 5px;
+    padding: 2px;
+}
+
+.post-img{
+    height: 140px;
+    width: 140px;
+    margin: 5px;
+    padding: 0 70px;
 }
