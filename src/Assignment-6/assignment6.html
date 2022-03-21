@@ -1,41 +1,180 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-	<meta http-equiv="Pragma" content="no-cache" />
-	<meta http-equiv="Expires" content="0" />
-	<script src="bundle.js" type="text/javascript"></script>
-</head>
+  <head>
+    <title></title>
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script src="bundle.js" type="text/javascript"></script>
+  </head>
 
-<body>
-	<div id="container">
+  <body>
+    <div id="container">
+      <!-- Start your code from here -->
+      <div class="left-part">
+        <div class="head">
+          <div class="character">
+            <span>Character : </span><span id="characterCount">0</span>
+          </div>
+          <div class="thread">
+            <span>Thread : </span><span id="threadCount">0</span>
+          </div>
+        </div>
 
-	<!-- Start your code from here -->
+        <div class="main-section">
+          <textarea
+            name=""
+            id="text-content"
+            placeholder="Enter your text here..The character limit for each thread is 275"
+          ></textarea>
+
+          <button id="add-btn">Thread</button>
+        </div>
+      </div>
+
+      <div class="right-part">
+        <p>Your threads will appear here🔥</p>
+        <p>⚠️The character limit for each thread is 275</p>
+
+        <div class="show-thread"></div>
+      </div>
+
+      <!-- End your code -->
+    </div>
+
+    <script type="text/javascript">
+      // write your javascript code here
+      let dom = (ele) => document.querySelector(ele);
+      let textContent = dom("#text-content");
+      let characterCount = dom("#characterCount");
+      let idx = 1;
+
+      textContent.addEventListener("keydown", charCounts);
+      textContent.addEventListener("keyup", charCounts);
+
+      function charCounts() {
+        let len = textContent.value.length;
+        characterCount.innerHTML = len;
+
+        let threadCount = dom("#threadCount");
+
+        threadCount.innerHTML = Math.ceil(len / 275);
+      }
 
 
-	<!-- End your code -->
 
-	</div>
+      function displayThread(listParent, arr=[]) {
 
-	<script type="text/javascript">
-	// write your javascript code here
+        let d = new Date();
+        let date = d.getDate();
+        let month = d.getMonth();
+        let year = d.getFullYear();
+        let hours = d.getHours();
+        let mins = d.getMinutes();
+        let secs = d.getSeconds();
 
-	</script>
+        listParent.innerHTML = arr.map((el, idx) => {
+          return `
+			<div class="threadData" id="${idx}">
+					<div class="threadDataHead">
+						<div class="threadLabel">${idx < 9 ? '0' + (idx + 1): idx + 1}</div>
+						<div class="threadDelete" id="deleteID${idx}" data-index="${idx}" onclick="deleteThread(this.id)"></div>
+						<div class="threadTime" data-index="${idx}">${date+"-"+(month+1)+"-"+year+" "+hours+":"+mins+":"+secs}</div>
+					</div>
 
-</body>
-<script>
-/* DO NOT EDIT THIS CODE- WRITTERN TO PREVENT CSS CACHING */	  
-	// Get HTML head element
-	var head = document.getElementsByTagName('HEAD')[0]; 
-	// Create new link Element
-	var link = document.createElement('link');
-	// set the attributes for link element 
-	link.rel = 'stylesheet'; 
-	link.type = 'text/css';
-	link.href = './assignment6.css?v='+ new Date().getTime(); 
-	// Append link element to HTML head
-	head.appendChild(link); 
-	/* DO NOT EDIT THIS CODE- WRITTERN TO PREVENT CSS CACHING */	  
-</script> 
+					<div class="threadDataBody">
+						${el}
+					</div>
+				</div>
+			`;
+    })
+    .join("");
+  }
+		
+		
+    
+    function tweets(str) {
+      let splitOnWhiteSpace = str.split(' ');
+
+      let result = [];
+
+      let totalLength = 0;
+      let sentence = '';
+
+      for (let i = 0; i < splitOnWhiteSpace.length; i++){
+        
+        let currentWord = splitOnWhiteSpace[i];
+        let currentWordLength = currentWord.length;
+
+        sentence += currentWord + ' ';
+
+        totalLength += currentWordLength + 1;
+
+        if (totalLength >= 275){
+          sentence = sentence.trim();
+
+          let lengthDiff = sentence.length - 275;
+
+          if (lengthDiff > 0){
+            let lastIndexOfWhiteSpace = sentence.lastIndexOf(' ');
+
+            sentence = sentence.slice(0, lastIndexOfWhiteSpace);
+
+            i--;
+          }
+
+          result.push(sentence);
+
+          totalLength = 0;
+          sentence = '';
+        }
+
+        if (i === splitOnWhiteSpace.length -1 && totalLength <= 275 && sentence !== '') {
+            result.push(sentence.trim());
+        }
+      }
+
+      return result;
+    }
+
+
+    function thread() {
+
+    tweetsArr = tweets(textContent.value);
+  
+    displayThread(dom(".show-thread"), tweetsArr);
+  }
+
+
+    let addBtn = dom("#add-btn");
+    addBtn.addEventListener("click", thread);
+
+
+    function deleteThread(idx){
+      let index = idx.replace("deleteID", "");
+      tweetsArr.splice(index, 1);
+
+      displayThread(dom(".show-thread"), tweetsArr);
+    }
+
+
+    </script>
+  </body>
+  <script>
+    /* DO NOT EDIT THIS CODE- WRITTERN TO PREVENT CSS CACHING */
+    // Get HTML head element
+    var head = document.getElementsByTagName("HEAD")[0];
+    // Create new link Element
+    var link = document.createElement("link");
+    // set the attributes for link element
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = "./assignment6.css?v=" + new Date().getTime();
+    // Append link element to HTML head
+    head.appendChild(link);
+    /* DO NOT EDIT THIS CODE- WRITTERN TO PREVENT CSS CACHING */
+  </script>
 </html>
